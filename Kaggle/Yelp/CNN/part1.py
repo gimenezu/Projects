@@ -4,8 +4,8 @@
 
 
 
-caffe_root = '/home/ncchen/caffe/'
-data_root = '/home/ncchen/Kaggle-Yelp/input/'
+caffe_root = '/usr/bin/caffe/'
+data_root = '/mnt/Data/Data/Kaggle/Yelp/train_photos/'
 
 import numpy as np
 import sys
@@ -15,6 +15,7 @@ sys.path.insert(0, caffe_root + 'python')
 import caffe
 import os
 
+#todo here download models & eveyting ?
 if not os.path.isfile(caffe_root + 'models/bvlc_reference_caffenet/bvlc_reference_caffenet.caffemodel'):
     print("Downloading pre-trained CaffeNet model...")
     !caffe_root / scripts / download_model_binary.py.. / models / bvlc_reference_caffenet
