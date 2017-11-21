@@ -69,6 +69,7 @@ for i in range(NUMBATCH):
   # 6 wndows azure
   # 7 set time time to make decisions
   # 8 get whole script to run everyting.
+  # 9 understand other uses of mxnet
   prob = prob[:, col_sel.col-1]
 
   if pad > 0:
