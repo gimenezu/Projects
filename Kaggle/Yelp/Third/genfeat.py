@@ -27,6 +27,11 @@ model_dir = '/mnt/Data/Data/mxnet/models/inception-21k/model/'
 model_prefix = os.path.join(model_dir, 'Inception')
 num_round = 9
 
+"""
+model_dir = 'D:\\Data\\mxnet\\models\\'
+model_prefix = os.path.join(model_dir, 'Inception-BN')
+num_round = 126
+"""
 
 
 #todo add and load model in mxnet
@@ -59,9 +64,8 @@ for i in range(NUMBATCH):
   data = batch.data[0]
 
   prob = model.predict(data)
-  #ok until here, todo understand here
-  #todo
-  # 1 installation of everything on other computer
+
+
   # 2 understand sructure of submissions & everything
   # 3 select which pretrained model is the best one
   # 4 run on yelp
@@ -70,7 +74,8 @@ for i in range(NUMBATCH):
   # 7 set time time to make decisions
   # 8 get whole script to run everyting.
   # 9 understand other uses of mxnet
-  prob = prob[:, col_sel.col-1]
+  # 10 col selection
+  #prob = prob[:, col_sel.col-1]
 
   if pad > 0:
     N = len(idx) - pad
@@ -81,7 +86,7 @@ for i in range(NUMBATCH):
 
   header = first
   mode = 'w' if first else 'a'
-  df.to_csv(outfile % SEQ, index=False, header=header, mode=mode)
+  df.to_csv(src+'outfile.csv', index=False, header=header, mode=mode)
   first = False
 
   if (i+1) % 100 == 0:
